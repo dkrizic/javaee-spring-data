@@ -1,7 +1,10 @@
 package com.prodyna.test.javaee.neo4j;
 
+import org.neo4j.graphdb.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.neo4j.core.GraphDatabase;
+import org.springframework.data.neo4j.rest.SpringRestGraphDatabase;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -13,19 +16,25 @@ import javax.ejb.Startup;
 public class HelloWorld {
 
     private Logger log = LoggerFactory.getLogger( getClass() );
+    private SpringRestGraphDatabase graphDatabase;
 
     @PostConstruct
     public void start() {
         log.info("Started");
+        graphDatabase = new SpringRestGraphDatabase("http://localhost:7474/db/data", "neo4j", "secret");
     }
 
     @PreDestroy
     public void stop() {
         log.info("Stopping");
+        graphDatabase = null;
     }
 
     public void hello() {
         log.info("Hello");
+        for( Node node : graphDatabase.getAllNodes() ) {
+            log.info("Node " + node );
+        }
     }
 
 }

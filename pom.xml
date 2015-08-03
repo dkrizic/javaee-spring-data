@@ -16,15 +16,15 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.3</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
+                <version>2.18.1</version>
             </plugin>
         </plugins>
     </build>
@@ -42,12 +42,29 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <!-- Java EE Spac, WildFly Runtime -->
         <dependency>
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-6.0</artifactId>
             <version>1.0.0.Final</version>
             <type>pom</type>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit, Arquillian and WildFly -->
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <version>2.2.0-beta-2</version>
+            <scope>test</scope>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -66,12 +83,29 @@
             <version>1.0.0.Final</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Spring Data -->
+        <!--
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.12</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-neo4j</artifactId>
+            <version>3.3.2.RELEASE</version>
         </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-neo4j-rest</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
+        <!-- Neo4j -->
+        <!--
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+        -->
+
     </dependencies>
 
 </project>
