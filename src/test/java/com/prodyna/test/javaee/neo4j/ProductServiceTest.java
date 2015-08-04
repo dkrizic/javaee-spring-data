@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import static org.jboss.shrinkwrap.api.ShrinkWrap.*;
 
 @RunWith(Arquillian.class)
-public class HelloWorldTest {
+public class ProductServiceTest {
 
     @Deployment
     public static WebArchive deployment() {

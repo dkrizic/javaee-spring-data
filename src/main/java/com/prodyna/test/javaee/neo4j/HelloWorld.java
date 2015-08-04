@@ -3,8 +3,7 @@ package com.prodyna.test.javaee.neo4j;
 import org.neo4j.graphdb.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.neo4j.core.GraphDatabase;
-import org.springframework.data.neo4j.rest.SpringRestGraphDatabase;
+import org.springframework.data.neo4j.rest.SpringCypherRestGraphDatabase;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,13 +14,13 @@ import javax.ejb.Startup;
 @Singleton
 public class HelloWorld {
 
-    private Logger log = LoggerFactory.getLogger( getClass() );
-    private SpringRestGraphDatabase graphDatabase;
+    private Logger log = LoggerFactory.getLogger(getClass());
+    private SpringCypherRestGraphDatabase graphDatabase;
 
     @PostConstruct
     public void start() {
         log.info("Started");
-        graphDatabase = new SpringRestGraphDatabase("http://localhost:7474/db/data", "neo4j", "secret");
+        graphDatabase = new SpringCypherRestGraphDatabase("http://localhost:7474/db/data", "neo4j", "secret");
     }
 
     @PreDestroy
@@ -32,8 +31,8 @@ public class HelloWorld {
 
     public void hello() {
         log.info("Hello");
-        for( Node node : graphDatabase.getAllNodes() ) {
-            log.info("Node " + node );
+        for (Node node : graphDatabase.getAllNodes()) {
+            log.info("Node " + node);
         }
     }
 
