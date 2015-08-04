@@ -4,11 +4,14 @@ import org.neo4j.graphdb.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.neo4j.rest.SpringCypherRestGraphDatabase;
+import org.springframework.data.neo4j.support.Neo4jTemplate;
+import org.springframework.data.neo4j.support.mapping.Neo4jMappingContext;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.inject.Inject;
 
 @Startup
 @Singleton
@@ -20,7 +23,6 @@ public class HelloWorld {
     @PostConstruct
     public void start() {
         log.info("Started");
-        graphDatabase = new SpringCypherRestGraphDatabase("http://localhost:7474/db/data", "neo4j", "secret");
     }
 
     @PreDestroy

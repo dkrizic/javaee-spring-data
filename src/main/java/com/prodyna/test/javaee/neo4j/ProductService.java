@@ -1,12 +1,13 @@
 package com.prodyna.test.javaee.neo4j;
 
 
-import javax.ejb.Stateless;
-import java.util.List;
+import org.springframework.data.neo4j.conversion.Result;
 
-@Stateless
+import javax.ejb.Local;
+
+@Local
 public interface ProductService {
 
-    public List<Product> findAllProducts();
+    public Result<Product> findAllProducts();
 
 }

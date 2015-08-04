@@ -26,11 +26,14 @@ public class ProductServiceTest {
     }
 
     @Inject
-    private HelloWorld hello;
+    private ProductService productService;
 
     @Test
-    public void dummy() {
-        hello.hello();
+    public void readAllProducts() {
+        for (Product product : productService.findAllProducts()) {
+            System.out.println( product );
+        }
+        ;
     }
 
 }
