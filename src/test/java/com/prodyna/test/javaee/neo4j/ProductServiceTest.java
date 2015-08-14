@@ -18,8 +18,8 @@ public class ProductServiceTest {
     @Deployment
     public static WebArchive deployment() {
         WebArchive war = create(WebArchive.class, "hello.war");
-        war.addPackages(true, "com.prodyna.test.javaee.neo4j");
-        war.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+        war.addPackages(true, "com.prodyna.test.javaee");
+        war.addAsWebInfResource("META-INF/beans.xml", "classes/META-INF/beans.xml");
         war.addAsLibraries(Maven.resolver().loadPomFromFile("pom.xml").importRuntimeDependencies().resolve().withTransitivity().asFile());
         System.out.println(war.toString(true));
         return war;
@@ -31,9 +31,8 @@ public class ProductServiceTest {
     @Test
     public void readAllProducts() {
         for (Product product : productService.findAllProducts()) {
-            System.out.println( product );
+            System.out.println(product);
         }
-        ;
     }
 
 }

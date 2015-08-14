@@ -94,10 +94,9 @@
         -->
         <dependency>
             <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-neo4j-rest</artifactId>
-            <version>3.4.0.M1</version>
+            <artifactId>spring-data-neo4j</artifactId>
+            <version>4.0.0.RC1</version>
         </dependency>
-        <!-- Neo4j -->
         <!--
         <dependency>
             <groupId>org.neo4j</groupId>
@@ -109,6 +108,7 @@
     </dependencies>
 
     <repositories>
+
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
@@ -117,5 +117,20 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+
+        <repository>
+            <id>spring-libs-snapshot</id>
+            <name>Spring</name>
+            <url>http://repo.spring.io/libs-snapshot</url>
+        </repository>
+
+        <repository>
+            <id>neo4j</id>
+            <url>http://m2.neo4j.org/content/repositories/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
     </repositories>
 </project>

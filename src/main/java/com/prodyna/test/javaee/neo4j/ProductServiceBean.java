@@ -1,6 +1,7 @@
 package com.prodyna.test.javaee.neo4j;
 
-import org.springframework.data.neo4j.conversion.Result;
+
+import org.slf4j.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -9,10 +10,15 @@ import javax.inject.Inject;
 public class ProductServiceBean implements ProductService {
 
     @Inject
+    private Logger log;
+
+    @Inject
     private ProductRepository productRepository;
 
     @Override
-    public Result<Product> findAllProducts() {
-        return productRepository.findAll();
+    public Iterable<Product> findAllProducts() {
+        log.info("Finding all");
+        return productRepository.findAll() ;
     }
+
 }
