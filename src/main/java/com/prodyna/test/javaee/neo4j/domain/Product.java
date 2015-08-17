@@ -1,4 +1,4 @@
-package com.prodyna.test.javaee.neo4j;
+package com.prodyna.test.javaee.neo4j.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;

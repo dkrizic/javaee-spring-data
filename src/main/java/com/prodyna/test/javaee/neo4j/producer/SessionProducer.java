@@ -6,6 +6,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.neo4j.ogm.metadata.MetaData;
 import org.neo4j.ogm.session.Neo4jSession;
 import org.neo4j.ogm.session.Session;
+import org.neo4j.ogm.session.SessionFactory;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -15,14 +16,10 @@ import javax.inject.Inject;
  */
 public class SessionProducer {
 
-    @Inject
-    private MetaData metadata;
-
     @Produces
     public Session produce() {
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        ObjectMapper objectMapper = new ObjectMapper();
-        Session session = new Neo4jSession(metadata, "http://localhost:7474", httpClient, objectMapper);
+        SessionFactory sessionFactory = new SessionFactory("com.prodyna.test.javaee");
+        Session session = sessionFactory.openSession("http://localhost:7474/");
         return session;
     }
 

@@ -10,6 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <deltaspike.version>1.5.0</deltaspike.version>
     </properties>
 
     <build>
@@ -97,6 +98,12 @@
             <artifactId>spring-data-neo4j</artifactId>
             <version>4.0.0.RC1</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+
         <!--
         <dependency>
             <groupId>org.neo4j</groupId>
@@ -104,6 +111,21 @@
             <version>2.2.3</version>
         </dependency>
         -->
+
+        <!-- Deltaspike -->
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
     </dependencies>
 
